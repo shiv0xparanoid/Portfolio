@@ -1,0 +1,140 @@
+[
+  {
+    "id": "holopad",
+    "prjctId": "PRJCT/01",
+    "title": "HOLO\u2726PAD",
+    "year": "2025\u20132026",
+    "yearSort": 2026,
+    "role": "Founder / Builder",
+    "type": "Product / Platform / Spatial computing",
+    "scope": "End-to-end prototype",
+    "stack": [
+      "React", "Three.js", "WebGL", "GLSL", "MediaPipe",
+      "Node.js", "Express", "FastAPI", "Python"
+    ],
+    "problem": "Making 3D experiences more accessible through the browser.",
+    "solution": "A browser-native spatial computing platform exploring AI-assisted 2D-to-3D conversion and interactive digital environments.",
+    "keyDecisions": [
+      "Use WebGL and Three.js for real-time browser rendering rather than a desktop-only engine.",
+      "Explore AI-based segmentation and depth estimation to assist image-to-3D workflows.",
+      "Build around browser accessibility rather than requiring a dedicated headset."
+    ],
+    "outcome": {
+      "metric": "Prototype maturity",
+      "before": "Idea / concept only",
+      "after": "Working prototype + public project repository (performance and user outcomes pending validation)."
+    },
+    "links": [
+      { "label": "Demo",   "href": "[PLACEHOLDER — demo URL]", "confirmNeeded": true  },
+      { "label": "GitHub", "href": "https://github.com/shivang-sagar", "confirmNeeded": false }
+    ],
+    "media": [
+      { "type": "image", "src": "[PLACEHOLDER — 3D interface screenshot]", "alt": "[PLACEHOLDER]" },
+      { "type": "image", "src": "[PLACEHOLDER — 2D-to-3D conversion pipeline screenshot]", "alt": "[PLACEHOLDER]" },
+      { "type": "image", "src": "[PLACEHOLDER — interactive scene screenshot]", "alt": "[PLACEHOLDER]" }
+    ],
+    "testimonial": null
+  },
+  {
+    "id": "qvanta",
+    "prjctId": "PRJCT/02",
+    "title": "QVANTA",
+    "subtitle": "Quantum Algorithm Learning Platform",
+    "year": "2026",
+    "yearSort": 2026,
+    "role": "Project builder / Team lead (subject to confirmation)",
+    "type": "Product / Platform / Education",
+    "scope": "Quantum learning platform concept",
+    "stack": [
+      "Qiskit Aer", "Prisma", "PostgreSQL", "Monaco Editor",
+      "Zustand", "[PLACEHOLDER — confirm frontend framework from repo]"
+    ],
+    "problem": "Quantum computing learners need a way to understand algorithms, experiment with circuits, and connect theory with execution.",
+    "solution": "A learning platform concept combining quantum circuit experimentation, educational content, and a code-oriented interface.",
+    "keyDecisions": [
+      "Separate the frontend, API, and simulation into independent services.",
+      "Use Qiskit Aer as the quantum computation engine.",
+      "Explore a synchronized coding experience and AI-assisted tutoring."
+    ],
+    "outcome": {
+      "metric": "Implemented features & benchmarks",
+      "before": "Educational idea only",
+      "after": "Project repository available; specific features, benchmark results, and learner outcomes should be confirmed against the current code."
+    },
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/shivang-sagar", "confirmNeeded": true }
+    ],
+    "media": [
+      { "type": "image", "src": "[PLACEHOLDER — circuit simulator screenshot]", "alt": "[PLACEHOLDER]" },
+      { "type": "image", "src": "[PLACEHOLDER — Monaco editor screenshot]", "alt": "[PLACEHOLDER]" },
+      { "type": "image", "src": "[PLACEHOLDER — learning interface screenshot]", "alt": "[PLACEHOLDER]" }
+    ],
+    "testimonial": null
+  },
+  {
+    "id": "sketchify",
+    "prjctId": "PRJCT/03",
+    "title": "Sketchify",
+    "year": "[PLACEHOLDER — confirm year from repo history]",
+    "yearSort": 2025,
+    "role": "Project developer",
+    "type": "Application / Creative tooling",
+    "scope": "Project implementation",
+    "stack": ["[PLACEHOLDER — confirm from repository actual dependencies]"],
+    "problem": "Explore ways to make digital sketching or image-based creative workflows more accessible.",
+    "solution": "A software project documented in a public GitHub repository.",
+    "keyDecisions": [
+      "Keep the workflow focused on the primary creative task.",
+      "Structure the application around its core user interaction.",
+      "Iterate through implementation and testing."
+    ],
+    "outcome": {
+      "metric": "Release state",
+      "before": "Concept",
+      "after": "Public repository available; specific features and measured results need to be documented from the code."
+    },
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/shivang-sagar", "confirmNeeded": true }
+    ],
+    "media": [
+      { "type": "image", "src": "[PLACEHOLDER — actual application screenshots]", "alt": "[PLACEHOLDER]" }
+    ],
+    "testimonial": null
+  },
+  {
+    "id": "saathi",
+    "prjctId": "PRJCT/04",
+    "title": "Saathi / Samvaad",
+    "year": "[PLACEHOLDER — confirm from project records]",
+    "yearSort": 2025,
+    "role": "Project contributor / Team lead (if accurate)",
+    "type": "AI application / Conversational system",
+    "scope": "AI architecture and prototype",
+    "stack": [
+      "Retrieval-augmented generation (RAG)",
+      "BERT",
+      "LLM pipeline",
+      "Vector database"
+    ],
+    "problem": "Students may need accessible, multilingual conversational support in college environments.",
+    "solution": "A multilingual chatbot concept designed for college settings, with a retrieval and language-model pipeline to ground responses in relevant information.",
+    "keyDecisions": [
+      "Explore retrieval-based responses rather than relying entirely on free-form generation.",
+      "Consider multilingual accessibility.",
+      "Separate retrieval, language understanding, and response generation into distinct stages."
+    ],
+    "outcome": {
+      "metric": "Deployment & adoption",
+      "before": "Architecture concept",
+      "after": "Project concept and architecture documented. Deployment, institutional adoption, and user-impact numbers remain unverified."
+    },
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/shivang-sagar", "confirmNeeded": true }
+    ],
+    "media": [
+      { "type": "image", "src": "[PLACEHOLDER — chatbot demo screenshot]", "alt": "[PLACEHOLDER]" },
+      { "type": "image", "src": "[PLACEHOLDER — architecture diagram]", "alt": "[PLACEHOLDER]" }
+    ],
+    "testimonial": null
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "items": [],
+  "counterTotal": 0,
+  "placeholderTemplate": {
+    "_template": true,
+    "id": "award-template",
+    "name": "[PLACEHOLDER e.g. Awwwards]",
+    "type": "[PLACEHOLDER e.g. Site of the Day / Honorable Mention]",
+    "year": "202X",
+    "venue": "[PLACEHOLDER]",
+    "link": "[PLACEHOLDER public permalink]"
+  },
+  "honestyNote": "Awards counter starts at 0 until a real award is added. Any added item must have a public link or it is treated as [PLACEHOLDER]."
+}

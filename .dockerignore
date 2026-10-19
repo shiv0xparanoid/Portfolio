@@ -1,0 +1,13 @@
+node_modules
+.nuxt
+.output
+.data
+artifacts
+test-results
+**/target
+127.0.0.1
+.git
+.env
+.env.*
+!.env.example
+*.log

@@ -1,0 +1,16 @@
+{
+  "email": "hello@shivangsagar.dev",
+  "timezone": "Asia/Kolkata",
+  "location": "[PLACEHOLDER — e.g. Jaipur, India. Delete the whole location key if you prefer not to list it.]",
+  "socials": [
+    { "id": "github",   "label": "GitHub",   "href": "https://github.com/shivang-sagar",    "confirmNeeded": true  },
+    { "id": "linkedin", "label": "LinkedIn", "href": "https://linkedin.com/in/shivang-sagar","confirmNeeded": true  },
+    { "id": "twitter",  "label": "X",        "href": "[PLACEHOLDER — X/Twitter profile URL]","confirmNeeded": true  },
+    { "id": "resume",   "label": "Resume",   "href": "[PLACEHOLDER — /resume.pdf or public link]", "confirmNeeded": true  }
+  ],
+  "note": "confirmNeeded = true means the site renders the item with a dashed placeholder outline until the owner fills in the real link and sets confirmNeeded:false. Once all links are real, set each to false.",
+  "availability": {
+    "status": "[PLACEHOLDER — choose one: Open to work / Not accepting new work / Available Jan 2027]",
+    "responseTime": "Usually within 48 hours."
+  }
+}

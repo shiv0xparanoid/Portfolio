@@ -1,0 +1,27 @@
+[
+  {
+    "id": "holopad-startup",
+    "name": "HOLO✦PAD",
+    "displayName": "HOLO✦PAD",
+    "years": "2025 — Present",
+    "role": "Founder / Solo builder",
+    "problem": "Traditional screens constrain how people interact with digital objects. Exploring 3D experiences often requires specialized hardware or complicated software.",
+    "bet": "Browser-based graphics, computer vision, and AI could make spatial experiences more accessible without requiring a dedicated headset.",
+    "whatBuilt": "A browser-based platform concept exploring the conversion of 2D images into 3D experiences, using web graphics, AI-assisted vision pipelines, and interactive spatial interfaces.",
+    "technology": ["React", "Vite", "Three.js", "WebGL", "GLSL", "MediaPipe", "Node.js", "Express", "Python", "FastAPI"],
+    "traction": [
+      { "metric": "Prototype milestone", "value": "0.1 launched February 2026", "verification": "owner-reported-awaiting-source", "source": "[PLACEHOLDER — add timeline/source link]" },
+      { "metric": "Prototype 1.0", "value": "Ready milestone reached", "verification": "owner-reported-awaiting-source", "source": "[PLACEHOLDER — add timeline/source link]" },
+      { "metric": "Verified user counts", "value": "[PLACEHOLDER — add real MAU / WAU numbers + analytics source]", "verification": "placeholder", "source": "[PLACEHOLDER — analytics source]" },
+      { "metric": "Revenue / retention", "value": "[PLACEHOLDER — add only if a source is available]", "verification": "placeholder", "source": "[PLACEHOLDER — source]" }
+    ],
+    "learned": "A compelling prototype is only the beginning. Performance, asset pipelines, reliability, and a clear reason for users to return matter as much as the visual experience.",
+    "status": "live",
+    "statusLabel": "Live prototype · in development",
+    "links": {
+      "website": "[PLACEHOLDER — confirmed public live demo URL]",
+      "github": "[PLACEHOLDER — confirmed source repository URL]"
+    },
+    "verification": "owner-reported-awaiting-source"
+  }
+]

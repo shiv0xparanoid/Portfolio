@@ -1,0 +1,572 @@
+/* ==========================================================================
+   Portfolio — Shivang Sagar
+   Design tokens: Cinematic · Precise · Warm
+   Palette: 3 colors + 1 accent (cream canvas, ink text, muted meta, deep-blue accent)
+   Typography: 4 families, 7-step scale, tabular mono counters
+   Motion: easing/duration tokens + prefers-reduced-motion overrides
+   Quality: data-quality="low" disables expensive 3D shaders/effects
+   Theme: data-theme="light" (default) or "dark"
+   ========================================================================== */
+
+/* -------- Google font preconnects are in nuxt.config.ts head -------- */
+
+:root {
+  /* ================================================================
+     PALETTE — Light theme (default)
+     Canvas = cream warm grey, Ink = near-black, Accent = deep ink blue
+     3 neutral stops + 1 accent = 4-color maximum per brief
+     ================================================================ */
+   --bg: #f2efe8;                 /* warm studio cream */
+   --bg-soft: #e6e3dc;            /* paper-grey plane */
+   --bg-elev: #faf8f3;            /* lifted cream */
+   --line: rgba(27, 29, 32, 0.14);/* hairline grid */
+   --line-strong: rgba(27, 29, 32, 0.28);
+
+   --text: #1b1d20;               /* studio ink */
+   --text-muted: #4f565a;         /* quiet graphite */
+   --text-dim: rgba(27,29,32,.5);
+
+    --accent: #2457c5;             /* electric editorial blue */
+    --accent-soft: #dce6ff;        /* blue wash */
+    --accent-emph: #376fe8;        /* hover blue */
+    --accent-on-ink: #a9c0ff;      /* accent on the ink card surface */
+    --warm: #8b4938;               /* restrained warm error / pending */
+
+  --tv-bg: #120f0a;              /* CRT off-black */
+   --tv-glow: #8db2ff;            /* CRT blue tint */
+   --tv-amber: #d49b73;           /* restrained warm CRT note */
+
+   --shadow-1: 0 1px 2px rgba(27,29,32,.05), 0 1px 1px rgba(27,29,32,.04);
+   --shadow-2: 0 24px 80px -36px rgba(27,29,32,.28), 0 2px 8px rgba(27,29,32,.05);
+
+  /* ================================================================
+     TYPOGRAPHY — 4 families
+     ================================================================ */
+  --font-display: "Instrument Sans", "Schibsted Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif:   "Instrument Serif", "Georgia", "Times New Roman", serif;    /* italic, emotional words only */
+  --font-mono:    "JetBrains Mono", "Geist Mono", ui-monospace, "SFMono-Regular", "Consolas", monospace;
+  --font-tv:      "VT323", ui-monospace, "Courier New", monospace;            /* CRT / pixel text */
+
+  /* 7-step scale per spec: 12 / 14 / 18 / 28 / 56 / 120 / 200
+     Display clamp rule: 56px min → 11vw → 200px max */
+  --fs-12:  12px;
+  --fs-14:  14px;
+   --fs-18:  18px;
+  --fs-28:  28px;
+  --fs-56:  56px;
+  --fs-120: clamp(56px, 7vw, 120px);
+  --fs-200: clamp(56px, 11vw, 200px);
+
+  --lh-tight: 0.95;   /* display headings */
+  --lh-snug:  1.15;   /* sub headings */
+  --lh-body:  1.65;   /* body copy */
+
+  --ls-display: -0.03em;
+  --ls-head:    -0.02em;
+  --ls-mono:     0.08em;
+  --ls-mono-lg:  0.18em;
+
+  --measure: 62ch;   /* max body column per brief */
+  --weight-display:  500;   /* one display weight only */
+  --weight-body:     400;
+  --weight-mono:     400;
+  --font-variant-numeric: tabular-nums;   /* mono counters, no jitter */
+
+  /* ================================================================
+     SPACING — 4/8 base, generous whitespace (locomotive vibe)
+     ================================================================ */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 160px;
+
+   --section-py: clamp(80px, 8vw, 144px);
+
+   --container: min(1480px, calc(100vw - 64px));
+   --container-narrow: min(980px, calc(100vw - 64px));
+
+  /* Layout aliases used by Navigation / Projects / Modal / Drawer / Loader */
+   --max-w: min(1480px, calc(100vw - 48px));
+   --pad-x: clamp(16px, 3.2vw, 48px);
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ================================================================
+     MOTION — tokens
+     ================================================================ */
+  --dur-xs: 120ms;
+  --dur-s:  240ms;
+  --dur-m:  420ms;
+  --dur-l:  700ms;
+  --dur-xl: 1100ms;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-snap:   cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --quality: 1;  /* multiplied against shader heavy animation speeds */
+
+  /* ================================================================
+     Z STACK — fixed, predictable
+     ================================================================ */
+  --z-base:     0;
+  --z-content:  1;
+  --z-card:     10;
+  --z-nav:      50;
+  --z-drawer:   80;
+  --z-modal:    100;
+  --z-cursor:   200;
+  --z-loader:   9999;
+
+  /* ================================================================
+     COMPATIBILITY ALIASES — components use these token names.
+     Mirror existing tokens so every component var resolves cleanly.
+     ================================================================ */
+  /* Palette aliases */
+  --ink: var(--text);
+  --muted: var(--text-muted);
+  --surface: var(--bg-elev);
+
+  /* Spacing aliases (--space-*) — 1:1 with --sp-*, plus large section values */
+  --space-1: var(--sp-1);
+  --space-2: var(--sp-2);
+  --space-3: var(--sp-3);
+  --space-4: var(--sp-4);
+  --space-5: var(--sp-5);
+  --space-6: var(--sp-6);
+  --space-7: var(--sp-7);
+  --space-8: var(--sp-8);
+  --space-9: var(--sp-9);
+  --space-10: var(--sp-10);
+   --space-12: clamp(72px, 8vw, 128px);
+   --space-14: clamp(88px, 9vw, 152px);
+   --space-20: var(--section-py);
+
+  /* Radius aliases (--r-*) */
+  --r-sm: var(--radius-sm);
+  --r-md: var(--radius-md);
+  --r-lg: var(--radius-lg);
+  --r-pill: var(--radius-pill);
+
+  /* Duration aliases (--dur-150 / --dur-200) */
+  --dur-120: var(--dur-xs);
+  --dur-150: 150ms;
+  --dur-200: 200ms;
+  --dur-700: var(--dur-l);
+
+  /* Easing alias used in components */
+  --ease-out3: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Section layout shorthands */
+  --container-sm: min(720px, 90vw);
+}
+
+/* ================================================================
+   DARK THEME — data-theme="dark" (user toggle only, NEVER default)
+   Inverted cream→ink, accent kept at same hue; AA contrast enforced.
+   ================================================================ */
+[data-theme="dark"] {
+   --bg: #17191d;
+   --bg-soft: #22252a;
+   --bg-elev: #292d33;
+  --line: rgba(245,243,238,.08);
+  --line-strong: rgba(245,243,238,.18);
+
+   --text: #f2efe8;
+   --text-muted: #b3b5b7;
+  --text-dim: rgba(245,243,238,.5);
+
+   --accent: #8fb0ff;        /* blue remains AA on dark */
+   --accent-soft: #27365c;
+   --accent-emph: #b4c9ff;
+   --accent-on-ink: #244da8;
+   --warm: #d09276;
+
+  --tv-bg: #000;
+   --shadow-1: 0 1px 2px rgba(0,0,0,.4), 0 1px 1px rgba(0,0,0,.3);
+   --shadow-2: 0 16px 60px -20px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.4);
+
+  /* Dark-theme compat aliases */
+  --ink: var(--text);
+  --muted: var(--text-muted);
+   --surface: var(--bg-elev);
+}
+[data-theme="dark"] body { color-scheme: dark; }
+
+/* ================================================================
+   LOW QUALITY — data-quality="low"
+   Disables knits/glow shaders, simplifies cursor, caps particles.
+   ================================================================ */
+[data-quality="low"] {
+  --quality: 0.3;
+}
+
+/* ================================================================
+   GLOBAL RESET + BASE
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: var(--weight-body);
+   font-size: 16px;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  /* allow Lenis to take over native smooth; keep if fallback */
+  scroll-behavior: auto;
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100vh;
+  /* `clip` (not `hidden`): hidden makes the body a scroll container, which
+     silently breaks every `position: sticky` stage on the page. */
+  overflow-x: clip;
+   color-scheme: light;
+  transition: background var(--dur-m) var(--ease-out),
+              color var(--dur-m) var(--ease-out);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+img, picture, video, svg, canvas { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+input, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--ls-head);
+  line-height: var(--lh-tight);
+}
+
+/* Display sizes: use these classes, never raw pixel values
+   Usage: <h1 class="d-200 split">Big heading</h1> */
+.d-200 { font-size: var(--fs-200); line-height: var(--lh-tight); letter-spacing: var(--ls-display); }
+.d-120 { font-size: var(--fs-120); line-height: var(--lh-tight); letter-spacing: var(--ls-display); }
+.d-56  { font-size: var(--fs-56);  line-height: 1.02; letter-spacing: var(--ls-head); }
+.d-28  { font-size: var(--fs-28);  line-height: var(--lh-snug); }
+.body  { font-size: var(--fs-18); line-height: var(--lh-body); max-width: var(--measure); }
+
+/* Serif italic accent — for emotional words ONLY inside headlines */
+.em, .emotional {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Mono metadata: eyebrows, counters, PRJCT rows, timestamps */
+.mono, .eyebrow, .meta, .counter {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono);
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.counter { font-size: var(--fs-14); letter-spacing: var(--ls-mono-lg); color: var(--text); }
+
+/* VT323 pixel TV text — CRT screen only, never in normal copy */
+.tvtext {
+  font-family: var(--font-tv);
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--tv-glow);
+  text-shadow: 0 0 6px rgba(76,201,240,.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Container primitive */
+.container { width: var(--container); margin-inline: auto; }
+.container-narrow { width: var(--container-narrow); margin-inline: auto; }
+
+/* Split-line mask reveal target: use useReveal() on parent
+   Each child .reveal-line wraps overflow hidden span */
+.reveal-line {
+  display: block;
+  overflow: hidden;
+}
+.reveal-line > span {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform var(--dur-l) var(--ease-out),
+              opacity var(--dur-l) var(--ease-out);
+  will-change: transform, opacity;
+}
+.reveal-line.is-in > span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Focus ring: visible and high contrast for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Screen-reader only, same pattern as Tailwind sr-only */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* Hide visually but keep layout — replaced with [PLACEHOLDER] tokens */
+.placeholder {
+  border: 1px dashed var(--line-strong);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--accent-soft) 0 8px,
+    transparent 8px 16px
+  );
+  color: var(--text-muted);
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+}
+
+/* Skip link: offscreen until focused */
+.skip-link {
+  position: absolute;
+  left: 16px; top: -48px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  z-index: var(--z-loader);
+  transition: top var(--dur-s) var(--ease-out);
+}
+.skip-link:focus { top: 16px; }
+
+/* Buttons: ghost / pill / underline variants
+   Variants compose with .btn .btn-ghost .btn-pill */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 14px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: var(--fs-14);
+  letter-spacing: 0.01em;
+  transition: all var(--dur-m) var(--ease-out);
+  user-select: none;
+  white-space: nowrap;
+}
+.btn-ghost {
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-solid {
+  background: var(--accent);
+  color: var(--bg);
+}
+.btn-solid:hover { background: var(--accent-emph); }
+
+/* Primary button: same as solid but explicit name used by components */
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+}
+.btn-primary:hover:not(:disabled) { background: var(--accent-emph); border-color: var(--accent-emph); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; }
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+/* Chip variants used inside section panels */
+.chip-muted {
+  background: var(--bg-soft);
+  border: 1px dashed var(--line-strong);
+  color: var(--text-muted);
+}
+
+/* section head / chapter layout helpers shared across components */
+.section__head { margin-bottom: var(--space-8); max-width: var(--container-narrow); }
+.section__title { margin-top: var(--space-3); }
+.section__lede { margin-top: var(--space-3); color: var(--muted); max-width: var(--measure); font-size: var(--fs-18); line-height: 1.6; }
+
+/* Underlined CTA (locomotive-style "Let's talk" in nav) */
+.link-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform var(--dur-m) var(--ease-out);
+}
+.link-underline:hover::after { transform: scaleX(0.15); transform-origin: right; }
+
+/* Small pill chip for stacks/tags */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Editorial primitives shared by the chapter components. */
+.hairline-grid {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.pending,
+.placeholder-text {
+  color: var(--warm);
+}
+.section__head {
+  display: grid;
+  gap: var(--sp-4);
+  max-width: min(980px, 100%);
+  margin-bottom: clamp(32px, 5vw, 72px);
+}
+.section__title {
+  max-width: 15ch;
+  margin-top: 0;
+}
+.section__lede {
+  max-width: 56ch;
+  margin-top: var(--sp-3);
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+.chapter + .chapter { border-top: 1px solid var(--line); }
+
+@media (max-width: 700px) {
+  :root {
+    --container: min(100% - 32px, 1480px);
+    --container-narrow: min(100% - 32px, 980px);
+    --max-w: calc(100% - 32px);
+    --pad-x: 16px;
+  }
+  html, body { font-size: 16px; }
+}
+
+/* ================================================================
+   REDUCED MOTION — global override
+   Disables every non-essential animation, but keeps fades for clarity.
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-line > span { transform: none; opacity: 1; }
+  html { scroll-behavior: auto; }
+}
+
+/* ================================================================
+   SCROLLBAR — thin, theme aware
+   ================================================================ */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ================================================================
+   CHAPTER PRIMITIVE — every section chapter uses the same grid
+   Usage: <section class="chapter" id="ch1"> ... eyebrow, h2, copy ... </section>
+   ================================================================ */
+.chapter {
+  position: relative;
+  padding-block: var(--section-py);
+  width: 100%;
+  background: var(--bg);
+}
+.chapter-head {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: var(--sp-6);
+  align-items: end;
+  margin-bottom: clamp(72px, 6vw, 80px);
+}
+.chapter-head .chapter-eyebrow { justify-self: start; }
+.chapter-head h2 { grid-column: 2 / 4; }
+.chapter-head .chapter-hook {
+  grid-column: 3 / 4;
+  align-self: end;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-18);
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .chapter-head {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-7);
+  }
+  .chapter-head h2, .chapter-head .chapter-hook { grid-column: 1 / -1; }
+}
+
+/* Grain overlay (very subtle) — .grain class applied in app.vue if quality=high */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.07  0 0 0 0 0.09  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+[data-theme="dark"] .grain { mix-blend-mode: screen; opacity: 0.05; }
+[data-quality="low"] .grain { display: none; }

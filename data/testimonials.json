@@ -1,0 +1,19 @@
+{
+  "items": [],
+  "placeholderTemplate": {
+    "_template": true,
+    "id": "testimonial-template",
+    "quote": "[PLACEHOLDER — real quote only. No fabrication. Example: \"Working with Shivang on X taught me Y.\" — Delete this entire template object and add real entries as: { id, quote, name, role, company, photo, link }]",
+    "name": "[First Last]",
+    "role": "[Role — e.g. CTO, Collaborator, Professor]",
+    "company": "[Company / University]",
+    "photo": "[PLACEHOLDER — /public URL or absolute https URL, square crop, under 200kb]",
+    "link": "[LinkedIn profile / contact URL]"
+  },
+  "threeWordDescriptors": [
+    { "from": "[Person 1 name]", "words": ["[adjective]", "[adjective]", "[adjective]"] },
+    { "from": "[Person 2 name]", "words": ["[adjective]", "[adjective]", "[adjective]"] },
+    { "from": "[Person 3 name]", "words": ["[adjective]", "[adjective]", "[adjective]"] }
+  ],
+  "honestyNote": "Zero fabricated quotes. Empty items array = the author has not yet collected real testimonials. Drop real entries as objects following the placeholderTemplate shape; this file is read at build, no code changes needed."
+}

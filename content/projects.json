@@ -1,0 +1,141 @@
+[
+  {
+    "id": "holopad",
+    "prjctId": "PRJCT/01",
+    "title": "HOLO✦PAD",
+    "year": "2025–2026",
+    "yearSort": 2026,
+    "role": "Founder / Builder",
+    "type": "Product / Platform / Spatial computing",
+    "scope": "End-to-end prototype",
+    "stack": ["React", "Vite", "Three.js", "React Three Fiber", "MediaPipe Hands", "Howler.js", "Node.js", "Express", "Python", "SAM"],
+    "problem": "Exploring how 3D creation and spatial interaction can move beyond flat screens while remaining accessible in the browser.",
+    "solution": "A browser-native spatial interface where uploaded images become textured GLB holograms through SAM segmentation and extrusion, alongside a Creative Space voxel editor, hand tracking, AR/passthrough, spatial audio, and the MEG AI companion.",
+    "keyDecisions": [
+      "Use React, Vite, Three.js, and React Three Fiber for real-time 3D rendering in the browser.",
+      "Use SAM segmentation and mathematical extrusion to turn uploaded images into textured GLB holograms.",
+      "Combine Creative Space voxel editing, MediaPipe Hands, AR/passthrough, and Howler.js spatial audio for hands-first interaction."
+    ],
+    "outcome": {
+      "metric": "Documented prototype scope",
+      "before": "Early-stage spatial computing concept",
+      "after": "Owner README documents a prototype with image-to-hologram, voxel editing, hand tracking, AR/passthrough, spatial audio, and an AI companion; adoption and user outcomes are not reported.",
+      "verification": "owner-reported-awaiting-source",
+      "source": "https://github.com/shiv0xparanoid/HOLOPAD"
+    },
+    "links": [
+      { "label": "Demo", "href": "https://holopad.vercel.app", "confirmNeeded": false, "verification": "confirmed" },
+      { "label": "Repository", "href": "https://github.com/shiv0xparanoid/HOLOPAD", "confirmNeeded": false, "verification": "confirmed" }
+    ],
+    "media": [
+      { "id": "holopad-interface", "type": "image", "src": "[PLACEHOLDER — 3D interface screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "holopad" },
+      { "id": "holopad-pipeline", "type": "image", "src": "[PLACEHOLDER — 2D-to-3D conversion pipeline screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "holopad" },
+      { "id": "holopad-scene", "type": "image", "src": "[PLACEHOLDER — interactive scene screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "holopad" }
+    ],
+    "testimonial": null,
+    "verification": "owner-reported-awaiting-source"
+  },
+  {
+    "id": "qvanta",
+    "prjctId": "PRJCT/02",
+    "title": "QVANTA",
+    "subtitle": "3D Quantum Learning SaaS",
+    "year": "2026",
+    "yearSort": 2026,
+    "role": "Project builder / Team Code Busters (owner-reported)",
+    "type": "Product / Platform / Education",
+    "scope": "Multi-tenant 3D quantum learning SaaS",
+    "stack": ["React", "Vite", "Three.js", "React Three Fiber", "TypeScript", "FastAPI", "Qiskit Aer", "PostgreSQL", "Redis", "Monaco Qiskit Editor"],
+    "problem": "Quantum computing is difficult to see and understand; learners need an interactive way to build circuits, simulate them, and connect theory with execution.",
+    "solution": "A 3D quantum learning SaaS combining circuit building, Qiskit Aer simulation, Monaco Qiskit editing, Bloch-sphere visualizations, a virtual human tutor, and multi-tenant authentication and billing.",
+    "keyDecisions": [
+      "Render quantum circuits as interactive 3D scenes with React Three Fiber and Three.js.",
+      "Use FastAPI and Qiskit Aer for simulation, with a Monaco Qiskit editor and Bloch-sphere visualizations.",
+      "Structure the product as a multi-tenant SaaS with role-based authentication and tiered billing."
+    ],
+    "outcome": {
+      "metric": "Documented product scope",
+      "before": "Quantum learning concept",
+      "after": "Owner README describes a multi-tenant 3D learning SaaS and identifies Team Code Busters as an SIH 2026 finalist; learner adoption and performance metrics are not reported.",
+      "verification": "owner-reported-awaiting-source",
+      "source": "https://github.com/shiv0xparanoid/QVANTA"
+    },
+    "links": [
+      { "label": "Repository", "href": "https://github.com/shiv0xparanoid/QVANTA", "confirmNeeded": false, "verification": "confirmed" }
+    ],
+    "media": [
+      { "id": "qvanta-circuit", "type": "image", "src": "[PLACEHOLDER — circuit simulator screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "qvanta" },
+      { "id": "qvanta-editor", "type": "image", "src": "[PLACEHOLDER — Monaco editor screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "qvanta" },
+      { "id": "qvanta-learning", "type": "image", "src": "[PLACEHOLDER — learning interface screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "qvanta" }
+    ],
+    "testimonial": null,
+    "verification": "owner-reported-awaiting-source"
+  },
+  {
+    "id": "sketchify",
+    "prjctId": "PRJCT/03",
+    "title": "Sketchify",
+    "year": "[PLACEHOLDER — confirm year from repo history]",
+    "yearSort": 2025,
+    "role": "Project developer",
+    "type": "Application / Creative tooling",
+    "scope": "Photo-to-pencil-sketch web app",
+    "stack": ["React", "Tailwind CSS", "Python", "Flask", "U²-Net", "PyTorch", "ONNX Runtime", "OpenCV", "scikit-image", "Render"],
+    "problem": "People need a simple way to turn ordinary photos into pencil-style sketches.",
+    "solution": "A React and Tailwind frontend uploads a photo to a Flask/Python backend, where U²-Net with PyTorch and ONNX Runtime plus OpenCV/scikit-image produces a pencil rendering; the repository includes Render deployment configuration.",
+    "keyDecisions": [
+      "Keep the primary flow focused on uploading a photo and receiving a pencil sketch.",
+      "Separate the React/Tailwind client from the Flask/Python image-processing API.",
+      "Combine U²-Net inference with PyTorch/ONNX Runtime and OpenCV/scikit-image pencil rendering."
+    ],
+    "outcome": {
+      "metric": "Documented release scope",
+      "before": "Photo-to-sketch idea",
+      "after": "Owner README documents an upload-to-pencil-sketch flow and Render deployment configuration; usage, adoption, and image-quality metrics are not reported.",
+      "verification": "owner-reported-awaiting-source",
+      "source": "https://github.com/shiv0xparanoid/sketchify"
+    },
+    "links": [
+      { "label": "Repository", "href": "https://github.com/shiv0xparanoid/sketchify", "confirmNeeded": false, "verification": "confirmed" }
+    ],
+    "media": [
+      { "id": "sketchify-app", "type": "image", "src": "[PLACEHOLDER — actual application screenshots]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "sketchify" }
+    ],
+    "testimonial": null,
+    "verification": "owner-reported-awaiting-source"
+  },
+  {
+    "id": "saathi",
+    "prjctId": "PRJCT/04",
+    "title": "Saathi / Samvaad",
+    "year": "[PLACEHOLDER — confirm from project records]",
+    "yearSort": 2025,
+    "role": "Project contributor / Team lead (if accurate)",
+    "type": "AI application / Conversational system",
+    "scope": "AI architecture and prototype",
+    "stack": ["Retrieval-augmented generation (RAG)", "BERT", "LLM pipeline", "Vector database"],
+    "problem": "Students may need accessible, multilingual conversational support in college environments.",
+    "solution": "A multilingual chatbot concept designed for college settings, with a retrieval and language-model pipeline to ground responses in relevant information.",
+    "keyDecisions": [
+      "Explore retrieval-based responses rather than relying entirely on free-form generation.",
+      "Consider multilingual accessibility.",
+      "Separate retrieval, language understanding, and response generation into distinct stages."
+    ],
+    "outcome": {
+      "metric": "Deployment & adoption",
+      "before": "Architecture concept",
+      "after": "Project concept and architecture documented; deployment, adoption, and user-impact numbers remain unverified.",
+      "verification": "owner-reported-awaiting-source",
+      "source": "[PLACEHOLDER — add project outcome/source link]"
+    },
+    "links": [
+      { "label": "Repository", "href": "[PLACEHOLDER — confirmed repository URL]", "confirmNeeded": true, "verification": "placeholder" }
+    ],
+    "media": [
+      { "id": "saathi-chatbot", "type": "image", "src": "[PLACEHOLDER — chatbot demo screenshot]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "saathi" },
+      { "id": "saathi-architecture", "type": "image", "src": "[PLACEHOLDER — architecture diagram]", "alt": "[PLACEHOLDER — add accessible description]", "confirmNeeded": true, "verification": "placeholder", "projectId": "saathi" }
+    ],
+    "testimonial": null,
+    "verification": "owner-reported-awaiting-source"
+  }
+]

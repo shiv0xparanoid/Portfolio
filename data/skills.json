@@ -1,0 +1,26 @@
+[
+  {
+    "group": "AI / ML",
+    "items": ["Python", "Machine Learning", "Deep Learning", "BERT", "RAG"]
+  },
+  {
+    "group": "WEB DEVELOPMENT",
+    "items": ["React", "TypeScript", "JavaScript", "Node.js", "Express"]
+  },
+  {
+    "group": "3D / GRAPHICS",
+    "items": ["Three.js", "WebGL", "GLSL", "React Three Fiber"]
+  },
+  {
+    "group": "BACKEND",
+    "items": ["FastAPI", "MongoDB", "PostgreSQL", "REST APIs"]
+  },
+  {
+    "group": "DEVOPS",
+    "items": ["Docker", "Linux", "Git", "Deployment"]
+  },
+  {
+    "group": "RESEARCH",
+    "items": ["Computer Vision", "AI Experiments", "Spatial Interfaces", "Evaluation"]
+  }
+]

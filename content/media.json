@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "personal-artifact",
+      "type": "image",
+      "src": "[PLACEHOLDER — confirmed personal media path or URL]",
+      "alt": "[PLACEHOLDER — add accessible description]",
+      "confirmNeeded": true,
+      "verification": "placeholder"
+    }
+  ],
+  "honestyNote": "[PLACEHOLDER — personal media and project assets remain unavailable until confirmed paths are supplied.]"
+}

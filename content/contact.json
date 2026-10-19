@@ -1,0 +1,17 @@
+{
+  "email": "shivangsagar529@gmail.com",
+  "timezone": "Asia/Kolkata",
+  "location": "[PLACEHOLDER — confirmed location, if you want it public]",
+  "socials": [
+    { "id": "github", "label": "GitHub", "href": "https://github.com/shiv0xparanoid", "confirmNeeded": false, "verification": "confirmed" },
+    { "id": "leetcode", "label": "LeetCode", "href": "https://leetcode.com/u/mellifluentShiv/", "confirmNeeded": false, "verification": "confirmed" },
+    { "id": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/shivang16062006/", "confirmNeeded": false, "verification": "confirmed" },
+    { "id": "x", "label": "X", "href": "[PLACEHOLDER — confirmed social URL]", "confirmNeeded": true, "verification": "placeholder" },
+    { "id": "resume", "label": "Resume", "href": "[PLACEHOLDER — confirmed resume URL or path]", "confirmNeeded": true, "verification": "placeholder" }
+  ],
+  "availability": {
+    "status": "[PLACEHOLDER — confirmed availability status]",
+    "responseTime": "[PLACEHOLDER — confirmed response time]"
+  },
+  "verification": "owner-reported-awaiting-source"
+}

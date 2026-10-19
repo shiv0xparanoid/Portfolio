@@ -1,0 +1,11 @@
+{
+  "items": [],
+  "placeholderTemplate": {
+    "_template": true,
+    "id": "press-template",
+    "headline": "[PLACEHOLDER — \"Shivang ships X that does Y.\"]",
+    "outlet": "[PLACEHOLDER — publication name]",
+    "date": "202X-MM-DD",
+    "link": "[PLACEHOLDER — public article URL]"
+  }
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "aero-28-101",
+    "metric": "Aeromodelling competition rank",
+    "value": "28 / 101",
+    "counter": { "start": 101, "end": 28, "prefix": "", "suffix": " / 101" },
+    "before": "No prior competition result on record",
+    "after": "Team ranked 28th among 101 selected teams nationally",
+    "context": "Team aeromodelling result — engineering and hardware skill proof.",
+    "source": "[PLACEHOLDER — add confirmed competition result/source link]",
+    "isPlaceholder": false,
+    "verification": "owner-reported-awaiting-source",
+    "sourceId": "impact.aero-28-101"
+  },
+  {
+    "id": "holopad-prototype-1-0",
+    "metric": "HOLO✦PAD prototype milestone",
+    "value": "Prototype 1.0",
+    "counter": null,
+    "before": "Prototype 0.1 (February 2026)",
+    "after": "Prototype 1.0 declared ready milestone",
+    "context": "Development milestone — not a user-growth or revenue metric.",
+    "source": "[PLACEHOLDER — add project timeline/source link]",
+    "isPlaceholder": false,
+    "verification": "owner-reported-awaiting-source",
+    "sourceId": "impact.holopad-prototype-1-0"
+  },
+  {
+    "id": "impact-users",
+    "_template": true,
+    "metric": "[PLACEHOLDER — add a real metric name]",
+    "value": "[PLACEHOLDER — add a sourced value]",
+    "counter": null,
+    "before": "[PLACEHOLDER — add baseline]",
+    "after": "[PLACEHOLDER — add result]",
+    "context": "[PLACEHOLDER — when / where]",
+    "source": "[PLACEHOLDER — analytics, report, or public source link]",
+    "isPlaceholder": true,
+    "verification": "placeholder"
+  },
+  {
+    "id": "impact-time-saved",
+    "_template": true,
+    "metric": "[PLACEHOLDER — add a second real metric name]",
+    "value": "[PLACEHOLDER — add a sourced value]",
+    "counter": null,
+    "before": "[PLACEHOLDER — add baseline]",
+    "after": "[PLACEHOLDER — add result]",
+    "context": "[PLACEHOLDER — when / where]",
+    "source": "[PLACEHOLDER — analytics, report, or public source link]",
+    "isPlaceholder": true,
+    "verification": "placeholder"
+  }
+]

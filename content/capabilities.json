@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ai-ml-python",
+    "group": "AI / ML",
+    "label": "Python",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "AI-assisted 2D → 3D conversion pipeline", "href": "/projects/holopad" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "ai-ml-learning",
+    "group": "AI / ML",
+    "label": "Machine Learning",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Image segmentation and depth-estimation exploration", "href": "/projects/holopad" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "ai-ml-deep",
+    "group": "AI / ML",
+    "label": "Deep Learning",
+    "built": [
+      { "title": "Saathi / Samvaad", "detail": "BERT + language-model pipeline concept", "href": "/projects/saathi" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "ai-ml-rag",
+    "group": "AI / ML",
+    "label": "RAG systems",
+    "built": [
+      { "title": "Saathi / Samvaad", "detail": "Retrieval-grounded multilingual chatbot architecture", "href": "/projects/saathi" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "web-react",
+    "group": "WEB DEVELOPMENT",
+    "label": "React",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Browser-native spatial computing interface", "href": "/projects/holopad" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "web-typescript",
+    "group": "WEB DEVELOPMENT",
+    "label": "TypeScript",
+    "built": [
+      { "title": "This portfolio", "detail": "SSR-ready scroll narrative and MEG interface", "href": "/#ch1" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "web-node",
+    "group": "WEB DEVELOPMENT",
+    "label": "Node.js / Express",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Browser product API and service layer", "href": "/projects/holopad" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "graphics-three",
+    "group": "3D / GRAPHICS",
+    "label": "Three.js",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Real-time 3D scenes in the browser", "href": "/projects/holopad" },
+      { "title": "This portfolio", "detail": "Procedural MEG scene and CRT screen" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "graphics-webgl",
+    "group": "3D / GRAPHICS",
+    "label": "WebGL / GLSL",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Browser graphics and shader experiments", "href": "/projects/holopad" },
+      { "title": "This portfolio", "detail": "GPU-backed CRT effects and particle visuals" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "backend-fastapi",
+    "group": "BACKEND",
+    "label": "FastAPI",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Independent AI and API service boundary", "href": "/projects/holopad" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "backend-data",
+    "group": "BACKEND",
+    "label": "PostgreSQL / MongoDB",
+    "built": [
+      { "title": "QVANTA", "detail": "PostgreSQL-backed quantum learning platform concept", "href": "/projects/qvanta" }
+    ],
+    "verification": "confirmed"
+  },
+  {
+    "id": "research-cv",
+    "group": "RESEARCH",
+    "label": "Computer vision / spatial interfaces",
+    "built": [
+      { "title": "HOLO✦PAD", "detail": "Spatial computing without requiring a dedicated headset", "href": "/projects/holopad" }
+    ],
+    "verification": "confirmed"
+  }
+]

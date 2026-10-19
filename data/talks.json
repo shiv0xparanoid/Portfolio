@@ -1,0 +1,13 @@
+{
+  "items": [],
+  "placeholderTemplate": {
+    "_template": true,
+    "id": "talk-template",
+    "title": "[PLACEHOLDER — talk title]",
+    "event": "[PLACEHOLDER — conference / meetup name]",
+    "city": "[City, Country]",
+    "year": "202X",
+    "slides": "[PLACEHOLDER — slides link]",
+    "recording": "[PLACEHOLDER — YouTube / recording link (optional)]"
+  }
+}

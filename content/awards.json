@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "id": "nintendo-internship-selection",
+      "name": "Selected for Nintendo Co., Ltd.'s Internship Program",
+      "type": "Internship program selection",
+      "year": "2025",
+      "venue": "Owner-reported evidence from official program correspondence shows a Kyoto start date of September 2, 2025.",
+      "link": "https://www.nintendo.co.jp",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "google-developer-program-acceptance",
+      "name": "Welcome to the Google Developer Program",
+      "type": "Program welcome / acceptance",
+      "year": "Undated",
+      "venue": "Owner-reported welcome and acceptance from official Google Developer Program correspondence.",
+      "link": "https://developers.google.com/program",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "sih-2026-team-nomination",
+      "name": "Nominated for Smart India Hackathon 2026",
+      "type": "Hackathon team nomination",
+      "year": "2026",
+      "venue": "Owner-reported correspondence names Shivang as Team Leader for CodeBusters and says the team was nominated as a participating team.",
+      "link": "https://www.sih.gov.in/",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "google-startups-accelerator-india-application",
+      "name": "Google for Startups Accelerator: India application acknowledged",
+      "type": "Accelerator application",
+      "year": "Undated",
+      "venue": "Owner-reported application acknowledgement for the Google for Startups Accelerator: India program.",
+      "link": "https://startup.google.com/programs/accelerator/asia-pacific/india/",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "gdg-ai-for-science-registration",
+      "name": "Registered for “What matters for code evolution?”",
+      "type": "Google Developer Groups event registration",
+      "year": "Undated",
+      "venue": "Owner-reported registration for a Google Developer Groups AI for Science - India event.",
+      "link": "https://developers.google.com/community",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "mckinsey-forward-acceptance",
+      "name": "Accepted into McKinsey.org Forward",
+      "type": "Professional development program acceptance",
+      "year": "Undated",
+      "venue": "Owner-reported acceptance into the McKinsey.org Forward program.",
+      "link": "https://www.mckinsey.com/forward",
+      "verification": "owner-reported-awaiting-source"
+    }
+  ],
+  "counterTotal": 6,
+  "honestyNote": "These records are owner-reported from official program correspondence. The supporting messages are private evidence, so they remain owner-reported until a public personal announcement or other public source is available. Private credentials and contact details are intentionally excluded."
+}

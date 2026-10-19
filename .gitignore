@@ -1,0 +1,36 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Optional Rust engine build output (keep its source and Cargo.lock)
+**/target/
+
+# Generated browser reports and local preview caches
+artifacts/
+test-results/
+playwright-report/
+127.0.0.1/
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.vs/
+.omnirush/
+.opencode/omnirush/
+
+# Local env files
+.env
+.env.*
+!.env.example

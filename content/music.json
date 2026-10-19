@@ -1,0 +1,29 @@
+{
+  "tracks": [
+    {
+      "id": "unshaken",
+      "title": "Unshaken",
+      "meta": "Released track",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "she-was-my-song",
+      "title": "she was my song",
+      "meta": "Released track",
+      "verification": "owner-reported-awaiting-source"
+    },
+    {
+      "id": "silent-battels",
+      "title": "silent battels",
+      "meta": "Released track",
+      "verification": "owner-reported-awaiting-source"
+    }
+  ],
+  "soundcloud": {
+    "label": "Listen on SoundCloud",
+    "href": "https://soundcloud.com/shivang-sagar",
+    "confirmNeeded": false,
+    "verification": "confirmed"
+  },
+  "honestyNote": "Three owner-reported releases are listed as supplied. The public SoundCloud profile is the listening link; no play counts or release dates are inferred."
+}

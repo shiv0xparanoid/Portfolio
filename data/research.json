@@ -1,0 +1,43 @@
+{
+  "published": [
+    {
+      "id": "backend-venn",
+      "title": "Decoding Backend Integration through Venn Diagrams: From Simplicity to Multi-Dimensional Thinking",
+      "year": "[PLACEHOLDER — confirm publication date]",
+      "venue": "Medium article / independent technical writing",
+      "plain_summary": "Backend integration can be easier to reason about when the relationships between systems, responsibilities, and shared interfaces are represented visually.",
+      "so_what": "You don't need more abstractions to understand backend integration — you need a better map of which systems share what.",
+      "result": "A conceptual approach to explaining backend integration through Venn diagrams. No experimental validation claimed.",
+      "links": [
+        { "label": "Medium article", "href": "[PLACEHOLDER — paste exact Medium URL here]", "confirmNeeded": true }
+      ],
+      "isPublished": true
+    }
+  ],
+  "focusAreas": [
+    {
+      "label": "RAG Architectures",
+      "why": "Retrieval-augmented generation keeps answers grounded in real data instead of hallucinations — critical for products people trust.",
+      "tags": ["RAG", "LLM", "Vector Search", "Retrieval"],
+      "links": []
+    },
+    {
+      "label": "BERT / BART Fine-tuning",
+      "why": "Small fine-tuned models can outperform giants on narrow domain tasks — where latency and cost matter.",
+      "tags": ["BERT", "BART", "Fine-tuning", "NLP"],
+      "links": []
+    },
+    {
+      "label": "Depth Estimation & Swin Vision",
+      "why": "Turning 2D images into 3D worlds without depth sensors is the bridge between regular screens and spatial computing.",
+      "tags": ["Computer Vision", "Depth Estimation", "Swin Transformers"],
+      "links": []
+    },
+    {
+      "label": "Spatial Computer Vision",
+      "why": "Browser-native spatial computing without a headset — the real accessibility win for 3D UX.",
+      "tags": ["Spatial UI", "MediaPipe", "WebGL", "3D Interfaces"],
+      "links": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "aero-28-101",
+    "metric": "Aeromodelling competition rank",
+    "value": "28 / 101",
+    "counter": { "start": 101, "end": 28, "prefix": "", "suffix": " / 101" },
+    "before": "No prior competition result on record",
+    "after": "Team ranked 28th among 101 selected teams nationally",
+    "context": "Team aeromodelling result — engineering and hardware skill proof.",
+    "source": "Competition results, 202X (confirm year in free text if applicable)",
+    "isPlaceholder": false
+  },
+  {
+    "id": "holopad-prototype-1-0",
+    "metric": "HOLO\u2726PAD prototype milestone",
+    "value": "Prototype 1.0",
+    "counter": null,
+    "before": "Prototype 0.1 (February 2026)",
+    "after": "Prototype 1.0 declared ready milestone",
+    "context": "Development milestone — not a user-growth or revenue metric.",
+    "source": "Internal project timeline",
+    "isPlaceholder": false
+  },
+  {
+    "id": "impact-users",
+    "_template": true,
+    "metric": "[PLACEHOLDER ADD REAL METRIC 1 — e.g. Users reached]",
+    "value": "[PLACEHOLDER e.g. 120,000]",
+    "counter": { "start": 0, "end": 120000, "prefix": "", "suffix": " users" },
+    "before": "[PLACEHOLDER e.g. 0]",
+    "after": "[PLACEHOLDER]",
+    "context": "[PLACEHOLDER — when / where]",
+    "source": "[PLACEHOLDER — analytics, app store, financial report]",
+    "isPlaceholder": true
+  },
+  {
+    "id": "impact-time-saved",
+    "_template": true,
+    "metric": "[PLACEHOLDER ADD REAL METRIC 2 — e.g. Time saved per onboarding]",
+    "value": "[PLACEHOLDER e.g. \u22127 min / session]",
+    "counter": null,
+    "before": "[PLACEHOLDER e.g. 9 minutes]",
+    "after": "[PLACEHOLDER e.g. 2 minutes]",
+    "context": "[PLACEHOLDER]",
+    "source": "[PLACEHOLDER]",
+    "isPlaceholder": true
+  }
+]
