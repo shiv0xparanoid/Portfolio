@@ -1,138 +1,249 @@
-# Shivang Sagar — Technology, made tangible.
+<div align="center">
 
-A single-scroll portfolio built around **MEG**, a persistent CRT-TV assistant. The page is an editorial story first: identity, origin, capabilities, one honest venture case file, research, impact, work, people, Ask MEG, contact, and extras.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:020a06,50:0b3d2a,100:39ff88&height=210&section=header&text=Technology%2C%20made%20tangible.&fontColor=eafff3&fontSize=44&fontAlignY=38&desc=a%20single-scroll%20portfolio%20narrated%20by%20MEG%2C%20a%20CRT-TV%20assistant&descAlignY=60&descSize=16" width="100%" />
 
-The app is a Nuxt 4 + TypeScript codebase. Three.js is dynamically loaded for the MEG scene; the rest of the story remains SSR-friendly HTML and CSS.
+<br/>
 
-## Run it
+![Nuxt](https://img.shields.io/badge/Nuxt%204-00DC82?style=for-the-badge&logo=nuxtdotjs&logoColor=white)
+![Vue](https://img.shields.io/badge/Vue-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black)
+![Anthropic](https://img.shields.io/badge/Anthropic-191919?style=for-the-badge&logo=anthropic&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 
-Requirements: Node.js `20.19.5` and npm 10+ (the pinned Node version is in `.nvmrc`).
+**An editorial story first, a 3D experience second.**
+Identity, origin, capabilities, a venture case file, research, impact, work, people, **Ask MEG**, contact.
+
+[![GitDiagram](https://img.shields.io/badge/Explore%20on-GitDiagram-0b3d2a?style=flat-square)](https://gitdiagram.com/shiv0xparanoid/Portfolio)
+[![License](https://img.shields.io/badge/License-MIT-39ff88?style=flat-square)](LICENSE)
+
+[About](#-about) · [Workflow](#-workflow) · [Run It](#-run-it) · [Content](#-editing-content) · [MEG](#-meg) · [Deploy](#-deploy) · [Structure](#-project-map)
+
+</div>
+
+<br/>
+
+## ✦ About
+
+A personal portfolio of capabilities, awards and projects, built around **MEG**, a persistent CRT-TV assistant that follows you down the page.
+
+- **Nuxt 4 + TypeScript.** The story stays SSR-friendly HTML and CSS, and Three.js is loaded dynamically, only for MEG's scene.
+- **Content is JSON.** Edit files in `content/`, never touch Vue for a normal update.
+- **Grounded AI.** MEG never writes facts. The model only *selects*, and answers are assembled from validated content with citations.
+- **Works with zero keys.** No Anthropic key? `/api/chat` streams a deterministic offline answer.
+- **Honest by design.** An unconfirmed fact stays `[PLACEHOLDER]` and is never rendered as a link.
+
+<br/>
+
+## ✦ Workflow
+
+> 🔍 **Interactive version:** open this repo on **[GitDiagram](https://gitdiagram.com/shiv0xparanoid/Portfolio)** for the auto-generated, clickable architecture view. (Replace `github.com` with `gitdiagram.com` in any repo URL.) The diagrams below are the curated versions.
+
+### 1 · System architecture
+
+```mermaid
+flowchart TB
+    subgraph CONTENT["📄  content/ · single source of truth"]
+        direction LR
+        J["bio · capabilities · startups<br/>projects · research · impact<br/>awards · talks · contact …"]
+    end
+
+    subgraph SHARED["🛡️  shared/"]
+        V["validation + SSE contracts"]
+    end
+
+    subgraph APP["🖥️  app/ · Nuxt 4 + Vue"]
+        direction TB
+        PG["pages/index.vue<br/>story chapters"]
+        CASE["pages/projects/:id<br/>case studies"]
+        UC["usePortfolioContent()"]
+        TB["PersistentTelebot<br/>one canvas, follows anchors"]
+        SC["three/TelebotScene.ts<br/>three/ScreenReel.ts"]
+        PG --> UC
+        CASE --> UC
+        TB --> SC
+    end
+
+    subgraph SRV["⚙️  server/ · Nitro"]
+        direction TB
+        CHAT["api/chat.post.ts"]
+        GR["utils/grounding.ts"]
+        CHAT --> GR
+    end
+
+    J --> V
+    V --> UC
+    V --> GR
+    APP <-->|"SSE stream"| CHAT
+    CHAT -.->|"optional selector"| LLM["Anthropic API"]
+    APP --> HOST[("☁️ Vercel / Docker")]
+    SRV --> HOST
+
+    classDef c fill:#06170f,stroke:#39ff88,color:#eafff3
+    classDef a fill:#0b3d2a,stroke:#39ff88,color:#eafff3
+    classDef s fill:#102a20,stroke:#8affbf,color:#eafff3
+    classDef o fill:#1c1c1c,stroke:#888,color:#eafff3
+    class J,V c
+    class PG,CASE,UC,TB,SC a
+    class CHAT,GR s
+    class LLM,HOST o
+```
+
+### 2 · Ask MEG: grounded answer flow
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor V as Visitor / Recruiter
+    participant W as Browser (Ask MEG)
+    participant API as /api/chat
+    participant L as Anthropic selector (optional)
+    participant G as Grounding + content
+
+    V->>W: type a brief
+    W->>API: POST bounded brief
+    API->>API: validate input + rate-limit (hashed address key)
+    alt key configured
+        API->>L: pick tool / topic
+        L-->>API: selection only
+    else no key or provider error
+        API->>API: deterministic offline selection
+    end
+    API->>G: build answer from validated content
+    G-->>API: text + sources
+    API-->>W: SSE: meta → tool → token… → sources → done
+    W->>W: re-check tool allowlist, drive MEG's screen
+    W-->>V: streamed answer with citations
+```
+
+> The model never writes portfolio facts or citations. Tool names and arguments are allowlisted on the server **and** again in the browser.
+
+### 3 · MEG's life cycle
+
+```mermaid
+flowchart LR
+    A["Hero anchor visible"] --> B["MEG docks to hero"]
+    C["Ask anchor visible"] --> D["MEG docks to Ask chapter"]
+    E["Neither visible"] --> F["Compact corner assistant"]
+    B & D & F --> G{"Off-screen, tab hidden,<br/>or slow frames?"}
+    G -->|"yes"| H["Pause · drop to low quality<br/>dispose GPU resources"]
+    G -->|"no"| I["Render CRT: scanlines · shockwave<br/>terminal stream · project preview"]
+
+    classDef a fill:#0b3d2a,stroke:#39ff88,color:#eafff3
+    classDef b fill:#06170f,stroke:#8affbf,color:#eafff3
+    class A,C,E,B,D,F a
+    class G,H,I b
+```
+
+<br/>
+
+## ✦ Run It
+
+> **Needs:** Node `20.19.5` (pinned in `.nvmrc`) and npm 10+.
 
 ```bash
 npm ci
-npm run dev
+npm run dev          # http://localhost:3000
 ```
-
-Open `http://localhost:3000`.
-
-Production checks:
 
 ```bash
 npm run typecheck
 npm run test
 npm run preview
+make test            # offline verification: typecheck + production build, no API key needed
 ```
 
-`make test` is the single offline verification command used by the buildathon; it runs the typecheck and production build without needing an API key. The build is intentionally usable without an Anthropic key: `/api/chat` streams a deterministic, content-grounded offline answer instead.
-
-### Docker
-
-The production image builds from the committed lockfile and runs the Nuxt Nitro server on port `3000`:
+**Docker**
 
 ```bash
 docker build -t shivang-portfolio .
 docker run --rm -p 3000:3000 shivang-portfolio
 ```
 
-Open `http://localhost:3000` after the container starts.
+<br/>
 
-## Content editing
+## ✦ Editing Content
 
-Edit JSON only; no Vue changes are needed for normal content updates. The canonical files are in `content/` and are validated before use on the server and at the client content boundary.
+Edit JSON only. Every file is validated on the server and at the client boundary.
 
-| File | What it owns |
-| --- | --- |
-| `content/bio.json` | Name, role, tagline, pitch, origin lines, timeline and research focus. |
-| `content/capabilities.json` | Numbered capabilities, their groups, and the builds that prove each skill. |
-| `content/startups.json` | Startup case files. Only real ventures belong here. |
-| `content/projects.json` | `PRJCT/NN` project records, decisions, outcomes, links and media. |
-| `content/research.json` | Published writing separated from research focus areas. |
-| `content/impact.json` | Owner-reported impact rows and source state. |
-| `content/testimonials.json` | Real quotes, descriptors and honesty note. |
-| `content/awards.json`, `content/press.json`, `content/talks.json` | Recognition and appearances. Owner-reported program records stay visibly marked. |
-| `content/music.json` | Three-track discography and the public SoundCloud listening link. |
-| `content/contact.json` | Public email, timezone, availability and social links. |
-| `content/media.json` | Confirmed photos/videos for the CRT reel. |
+| File | Owns |
+|---|---|
+| `content/bio.json` | Name, role, tagline, pitch, origin lines, timeline, research focus |
+| `content/capabilities.json` | Numbered capabilities and the builds that prove each one |
+| `content/startups.json` | Venture case files (real ventures only) |
+| `content/projects.json` | `PRJCT/NN` records, decisions, outcomes, links, media |
+| `content/research.json` | Published writing, kept separate from focus areas |
+| `content/impact.json` | Owner-reported impact rows and source state |
+| `content/testimonials.json` | Real quotes and the honesty note |
+| `content/awards.json` · `press.json` · `talks.json` | Recognition and appearances |
+| `content/music.json` | Discography and the public SoundCloud link |
+| `content/contact.json` | Email, timezone, availability, social links |
+| `content/media.json` | Confirmed photos and videos for the CRT reel |
 
-Honesty rule: a fact without an owner-confirmed source stays `[PLACEHOLDER]` or `owner-reported-awaiting-source`. Placeholder URLs are rendered as copy, never as clickable links. Do not put secrets, private analytics exports or API keys in these files.
+> ⚠️ **Honesty rule:** a fact without an owner-confirmed source stays `[PLACEHOLDER]` or `owner-reported-awaiting-source`. Never put secrets, analytics exports or API keys in these files.
 
-The old `data/` folder is preserved as the original content drop for reference. The application reads `content/` through `app/composables/usePortfolioContent.ts`.
+<br/>
 
-### Capabilities and built work
+## ✦ MEG
 
-The Capabilities chapter is a pinned horizontal scroll on larger screens, a native horizontal overflow track on small screens, and a static grid for reduced-motion or low-quality mode. Each domain card pairs the tools with the products and experiments they have already powered.
+One canvas, procedurally built in Three.js, no model files.
 
-The cards use a locally owned Vue adaptation of the [21st.dev Spotlight Card](https://21st.dev/@jahed/components/spotlight-card) pattern in `app/components/ui/SpotlightCard.vue`. The pinned track behavior is shared by `app/composables/useHorizontalParallax.ts` and is also used by the People chapter's recognition wall. 21st publishes React/Tailwind components, while this project is Nuxt/Vue, so the interaction is adapted without adding a React runtime or a network dependency.
+- **Anchors:** follows `[data-telebot-anchor="hero"]` and `"ask"`, then shrinks to a corner assistant
+- **Screen:** `ScreenReel.ts` runs the CRT channels, typed boot, terminal stream, scanlines, vignette, pointer ripple and project preview
+- **Performance:** lazy-loaded, pauses off-screen and when the tab is hidden, disposes geometries, materials and textures, drops quality after slow frames
+- **Accessibility:** honors reduced motion, and the Capabilities chapter falls back to a static grid
+- **Contract:** `useTelebot()` exposes `setChannel`, `setMood`, `streamText`, `playMedia`, `setProjectPreview`, `dance`
 
-The Extras archive is a premium workbench index: timeline, tools, writing, experiments and music live in a restrained card system with a dark feature panel for the releases. Its `app/components/MusicReleases.client.vue` panel is a client-only editorial horizontal release track with generated disc studies, native touch/mouse scrolling, arrow/wheel/swipe navigation, an accessible track list, and a static reduced-motion mode. It keeps listening external through the public SoundCloud link and does not autoplay audio. The Contact chapter is a hero-like full-viewport `#ch10` placed after Ask MEG, reusing `app/components/ParticlePortrait.client.vue` and the local `/public/portrait-body.png` asset for the same WebGL particle-to-image assembly used by the home hero. The stage uses CSS sticky positioning inside reserved scroll space; GSAP/ScrollTrigger scrubs the portrait without inserting a pin spacer. Reduced motion shows the assembled image immediately and collapses the extra scroll space. The chapter also includes a `mailto:` contact form with the supplied public profiles; no CDN asset or backend is required.
+<br/>
 
-## MEG
+## ✦ Environment
 
-`app/components/PersistentTelebot.vue` mounts one canvas and follows `[data-telebot-anchor="hero"]` and `[data-telebot-anchor="ask"]`. It becomes a compact corner assistant when neither anchor is visible. The public assistant is named MEG; the internal component and state names remain `Telebot*` for compatibility. The scene is procedural in `app/three/TelebotScene.ts`; `app/three/ScreenReel.ts` owns the CRT channels, typed SS boot, terminal stream, media loading, scanlines, vignette, pointer lens/ripple, click shockwave and project preview mode.
-
-The canvas is lazy-loaded, pauses when off-screen or the tab is hidden, disposes all geometries/materials/textures, honors reduced motion, and drops to low quality after sustained slow frames. Missing media produces an explicit designed no-media screen; it does not fabricate a photograph.
-
-The state surface in `app/composables/useTelebot.ts` is the contract for chat tools and future attached assets. It includes `setChannel`, `setMood`, `streamText`, `playMedia`, `setProjectPreview`, `highlight`-compatible metric navigation, and `dance`.
-
-## Grounded Ask MEG
-
-The mini prompt and full `#ch9` chapter share one transcript. The API accepts a bounded visitor or recruiter brief and returns SSE records:
-
-```text
-{ type: "meta", mode }
-{ type: "tool", name, args }
-{ type: "token", text }
-{ type: "sources", sources: [{ label, href }] }
-{ type: "done" }
-```
-
-`server/api/chat.post.ts` validates input, rate-limits by a one-way address key, routes the request through a server-only Anthropic selector when configured, and then constructs the answer from validated canonical content. The model never writes portfolio facts or citations. Tool names and arguments are allowlisted again in the browser. Missing keys, provider errors and offline mode use the deterministic fallback bank in `app/composables/useTelebotChat.ts`.
-
-### Environment variables
-
-Copy `.env.example` to `.env` or configure these in Vercel. Never commit `.env`.
+Copy `.env.example` to `.env`, or set these in Vercel. Never commit `.env`.
 
 | Variable | Scope | Purpose |
-| --- | --- | --- |
-| `NUXT_ANT_THROPIC_KEY` | server-only | Optional Anthropic API key. It is never sent to the browser. |
-| `NUXT_ANTHROPIC_MODEL` | server-only | Optional model name available to your Anthropic account. |
-| `NUXT_PUBLIC_SITE_URL` | public | Final HTTPS origin for sitemap and Person JSON-LD. Replace the placeholder before deploy. |
+|---|---|---|
+| `NUXT_ANT_THROPIC_KEY` | server-only | Optional Anthropic key, never sent to the browser |
+| `NUXT_ANTHROPIC_MODEL` | server-only | Optional model name your account can use |
+| `NUXT_PUBLIC_SITE_URL` | public | Final HTTPS origin for the sitemap and Person JSON-LD |
 
-The exact model/provider is a deployment choice. The repository does not invent a future model alias; the route uses its documented fallback only when the variable is empty.
+<br/>
 
-## Deploy to Vercel
+## ✦ Deploy
 
-1. Push/import this folder as a Nuxt project.
-2. Add `NUXT_PUBLIC_SITE_URL` with the final HTTPS URL.
-3. Add `NUXT_ANT_THROPIC_KEY` only if live selector routing is wanted. Offline grounded answers work without it.
-4. Use the default Nuxt build command (`npm run build`). Vercel detects Nitro automatically.
-5. Verify `/`, `/projects/holopad`, `/sitemap.xml`, `/robots.txt` and `/api/chat` after deploy.
+1. Import this folder into Vercel as a Nuxt project
+2. Set `NUXT_PUBLIC_SITE_URL` to the final HTTPS URL
+3. Set `NUXT_ANT_THROPIC_KEY` only if you want live selector routing
+4. Build with the default `npm run build`
+5. Verify `/`, `/projects/holopad`, `/sitemap.xml`, `/robots.txt` and `/api/chat`
 
-The API rate limiter is intentionally bounded in-process. For a multi-region/high-volume deployment, put an edge rate limiter in front of `/api/chat` rather than pretending the process map is globally shared.
+<br/>
 
-## QA notes
+## ✦ Project Map
 
-Actual checks run during this build are recorded in `DECISIONS.md` and the final handoff. The meaningful local checks are `npx vue-tsc --noEmit`, `npm run build`, the built preview smoke flow, and browser checks at the requested breakpoints. Lighthouse/axe/Playwright are not silently claimed: run the optional commands below after adding their browser binaries if you need CI reports.
-
-```bash
-npx playwright test
-npx lighthouse http://localhost:3000 --view
 ```
-
-## Replacing the procedural Telebot
-
-The referenced `TvHeadScene.jsx`, `ScreenReel.js`, and `telebot-portfolio.html` were not present in the workspace during this build. The current implementation follows the written brief procedurally. If those files arrive, adapt them behind the existing `TelebotSceneController` surface and keep `useTelebot()` and the single `PersistentTelebot` mount unchanged.
-
-## Project map
-
-```text
 app/pages/index.vue                 story order
 app/pages/projects/[id].vue         deep-linkable case studies
-app/components/PersistentTelebot   one-canvas placement shell
+app/components/PersistentTelebot    one-canvas placement shell
 app/three/TelebotScene.ts           procedural 3D rig
 app/three/ScreenReel.ts             shader + CRT screen module
-content/                             editable canonical facts
-shared/                              validation and SSE contracts
+content/                            editable canonical facts
+shared/                             validation and SSE contracts
 server/api/chat.post.ts             grounded AI boundary
-server/utils/grounding.ts           deterministic answer/tool selection
+server/utils/grounding.ts           deterministic answer + tool selection
+tests/ · scripts/ · types/          checks, tooling, shared types
 ```
+
+<br/>
+
+<div align="center">
+
+Built by **[Shivang](https://github.com/shiv0xparanoid)**
+
+<sub>MIT licensed · say hi to MEG on the live site 📺</sub>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:39ff88,50:0b3d2a,100:020a06&height=120&section=footer" width="100%" />
+
+</div>
